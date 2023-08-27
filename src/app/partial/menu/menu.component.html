@@ -1,0 +1,31 @@
+<ul>
+    <li [matMenuTriggerFor]="serviceMenu" routerLinkActive="active">
+        <a >
+            Services
+            <mat-icon>arrow_drop_down</mat-icon>
+        </a>
+    <li>
+    <li [matMenuTriggerFor]="aboutMenu" routerLinkActive="active">
+        <a >
+            About Us
+            <mat-icon>arrow_drop_down</mat-icon>
+        </a>
+    <li>
+    <li pageScroll [pageScrollOffset]="90" href="#problem-solution"  [routerLink]="['/home/problem-solution']" routerLinkActive="active">
+        <a>Problems & Solutions</a>
+    </li>
+    <li  [routerLink]="['/auth/login']" routerLinkActive="active">
+        <a>Login</a>
+    </li>
+</ul>
+
+<!-- MENU START -->
+<mat-menu #serviceMenu="matMenu">
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#services"  [routerLink]="['/home/services']" >Our Services</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-our-services"  [routerLink]="['/home/why-our-services']" >Why Get Our Services</button>
+</mat-menu>
+<mat-menu #aboutMenu="matMenu">
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#mission-vision"  [routerLink]="['/home/mission-vision']" >Mission Vision Goals</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-us"  [routerLink]="['/home/why-us']" >Why Choose Us</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#careers"  [routerLink]="['/careers']" >Careers</button>
+</mat-menu>

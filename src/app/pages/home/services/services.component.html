@@ -1,0 +1,71 @@
+<div class="container services" id="services" #serviceContainer>
+    <div class="row">
+        <h1 class="page-header">
+            <span>Our </span>
+            <span class="secondary-color">Services</span>
+        </h1>
+
+        <div class="services">
+
+
+
+            <ul class="list">
+
+                <li class="list-item  {{serviceClass}}" *ngFor="let row of services">
+                    <div class="list-content">
+                        <div class="col-left">
+                            <img src="./assets/imgs/{{row.img}}">
+                        </div>
+                        <div class="col-right">
+                            <h2>
+                                {{row.title}}: 
+                            </h2>
+                            <span>
+                                {{row.description}}
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+
+            <!-- <div class="w-33" *ngFor="let row of services">
+                <div class="service-item {{serviceClass}}">
+                    <img src="./assets/imgs/{{row.img}}">
+                    <div>
+                        <h2>{{row.title}}:</h2>
+                        <p>
+                            {{row.description}}
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<div class="container why-our-services why-us" id="why-our-services" #whyOurServiceContainer>
+    <div class="row">
+        <h1 class="page-header">
+            <span>Why get </span>
+            <span class="secondary-color">our services</span>
+        </h1>
+
+        <ul class="list">
+
+            <li class="list-item  {{whyOurServiceClass}}" *ngFor="let row of whyOurServices">
+                <div class="list-content">
+                    <mat-icon class="col-left">check_box</mat-icon>
+                    <div class="col-right">
+                        <h2>
+                            {{row.title}}: 
+                        </h2>
+                        <span>
+                            {{row.description}}
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

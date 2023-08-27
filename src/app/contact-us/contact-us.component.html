@@ -1,0 +1,116 @@
+<mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+
+<div class="contact">
+    <h1>
+        <span>Contact </span>
+        <span class="secondary-color">Us</span>
+    </h1>
+
+    <div class="contact-details">
+        <ul>
+            <li>
+                <img src="./assets/imgs/contact/ph.jpeg" />
+                <span>+639174211608</span>
+            </li>
+            <li>
+                <img src="./assets/imgs/contact/usa.jpeg" />
+                <span>+639174211608</span>
+            </li>
+            <li>
+                <img src="./assets/imgs/contact/uk.jpeg" />
+                <span>+639174211608</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="w-100">
+        <!-- <h2>Send us an email:</h2> -->
+
+        <form [formGroup]="form">
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Name</mat-label>
+                <input
+                formControlName="name"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('name')?.errors">
+                Name required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Email</mat-label>
+                <input
+                formControlName="email"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('email')?.errors">
+                Email insert a valid email
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Contact Number</mat-label>
+                <input
+                formControlName="contactNumber"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('contactNumber')?.errors">
+                Contact Number required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Company Name</mat-label>
+                <input
+                formControlName="companyName"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('companyName')?.errors">
+                    Company Name required
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Subject</mat-label>
+                <input
+                formControlName="subject"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('subject')?.errors">
+                    Please enter subject
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Body</mat-label>
+                <textarea
+                formControlName="body"
+                matInput type="text"
+                autocomplete="off">
+                </textarea>
+        
+                <mat-error class="mp-0" *ngIf="form.get('body')?.errors">
+                    Body required
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-flat-button color="accent">
+                Send
+            </button>
+        </form>
+    </div>
+</div>

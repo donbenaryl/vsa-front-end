@@ -1,0 +1,67 @@
+<div class="login-container">
+    <div class="inner">
+        <h1>
+            Login
+        </h1>
+
+        <form [formGroup]="form" (submit)="submit()">
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Username</mat-label>
+                <input
+                formControlName="username"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('username')?.errors">
+                Username required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field
+                appearance="outline" class="w-100 mt-10">
+                <mat-label>Password</mat-label>
+                <input
+                formControlName="password"
+                matInput type="text"
+                autocomplete="off">
+        
+                <mat-error class="mp-0" *ngIf="form.get('password')?.errors">
+                Password required
+                </mat-error>
+            </mat-form-field>
+
+            <button type="submit" mat-flat-button color="accent" class="w-100">
+                Login
+            </button>
+        </form>
+        
+    </div>
+</div>
+
+<!-- <div class="container hero">
+	<div class="inner">
+		<h1>Login</h1>
+		<p>
+			Quick animation prototype to explore an idea for the hero of my personal portfolio.<br>
+This was created using a canvas as a background where the triangles are drawn and animates with a overlay gradient on top of the canvas.
+		</p>
+		<p>
+			Feel free to share and use it as inspiration for any of you projects, and if you like it show some love by following me on:
+		</p>
+		<p>
+			<span><a href="https://dribbble.com/MDesignsuk"><i class="fa fa-dribbble" aria-hidden="true"></i></a></span>
+			<span><a href="https://twitter.com/MDesignsuk" target="_blank"><i class="fa fa-twitter"></i></a></span>
+			<span><a href="https://github.com/Mario-Duarte/" target="_blank"><i class="fa fa-github"></i></a></span>
+			<span><a href="https://bitbucket.org/Mario_Duarte/" target="_blank"><i class="fa fa-bitbucket"></i></a></span>
+			<span><a href="https://codepen.io/MarioDesigns/" target="_blank"><i class="fa fa-codepen"></i></a></span>
+		</p>
+		<p class="small">by: Mario Duarte</p>
+	</div>
+	<div class="overlay"></div>
+	<div class="background">
+		<canvas id="hero-canvas" width="1920" height="1080"></canvas>
+	</div>
+</div> -->
+
+

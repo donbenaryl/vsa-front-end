@@ -1,0 +1,21 @@
+<nav class="menu-mobile">
+    <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Example icon-button with a menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #mobileMenu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="serviceMenu">Services</button>
+        <button mat-menu-item [matMenuTriggerFor]="aboutMenu">About Us</button>
+        <button mat-menu-item pageScroll  pageScroll [pageScrollOffset]="90" href="#problem-solution"  [routerLink]="['/home/problem-solution']">Problems & Solutions</button>
+        <button mat-menu-item [routerLink]="['/auth/login']">Login</button>
+      </mat-menu>
+</nav>
+
+<mat-menu #serviceMenu="matMenu">
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#services"  [routerLink]="['/home/services']" >Our Services</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-our-services"  [routerLink]="['/home/why-our-services']" >Why Get Our Services</button>
+</mat-menu>
+<mat-menu #aboutMenu="matMenu">
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#mission-vision"  [routerLink]="['/home/mission-vision']" >Mission Vision Goals</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-us"  [routerLink]="['/home/why-us']" >Why Choose Us</button>
+    <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#careers"  [routerLink]="['/careers']" >Careers</button>
+</mat-menu>

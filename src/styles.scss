@@ -1,0 +1,1307 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$vsa-primary: mat.define-palette(mat.$indigo-palette);
+$vsa-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$vsa-warn: mat.define-palette(mat.$red-palette);
+
+
+/*-------
+Custom
+---------*/
+$custom-accent: (
+    50 : #f2e6f3,
+    100 : #dfc1e0,
+    200 : #ca97cb,
+    300 : #b56db6,
+    400 : #a54ea7,
+    500 : #952f97,
+    600 : #8d2a8f,
+    700 : #822384,
+    800 : #781d7a,
+    900 : #671269,
+    A100 : #fd9fff,
+    A200 : #fb6cff,
+    A400 : #fa39ff,
+    A700 : #f91fff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$custom-fe-accent: mat.define-palette($custom-accent);
+
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$vsa-theme: mat.define-light-theme((
+  color: (
+    primary: $vsa-primary,
+    accent: $custom-fe-accent,
+    warn: $vsa-warn,
+  )
+));
+
+
+/*-----------
+Colors Start
+------------*/
+$foreground-color: #fcffff;
+$background-color: #e58dbd;
+$secondary-color: #952f97;
+$primary-color: #382d71;
+$tertiary-color: #8477ca;
+// $tertiary-color: #eced81;
+$success-color: #72892e;
+$logo-color: #9536f6;
+/*-----------
+Colors Start
+------------*/
+
+$contBgClr: linear-gradient(to left bottom, #F2E3C6 0%, #A7A1A5 100%);
+$appShadowClr: rgba(#000, .3);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($vsa-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html {
+  min-height: 100vh;
+}
+
+html, body {
+	height: 100%;
+  // background-color: $background-color;
+  // height: 100%;
+  max-width: 100vw;
+  margin: 0;
+}
+body {
+  color: $primary-color;
+  margin: 0;
+  font-family: 'montserrat';
+  // font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  font-weight: 300;
+  // margin-bottom: 150px;
+  // background-color: $background-color;
+}
+
+
+/*--------------
+  Grid [Start]
+----------------*/
+.container {
+  width: 100%;
+  overflow: auto;
+}
+
+.row {
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  display: inline-block;
+}
+
+.w-50 {
+  width: 50%;
+  float: left;
+}
+
+.w-33 {
+  width: 33%;
+  float: left;
+}
+
+.w-100 {
+  width: 100%;
+  float: left;
+}
+/*--------------
+  Grid [Start]
+----------------*/
+
+
+/*------------
+Header [Start]
+--------------*/
+
+header {
+  top: 0px;
+  position: absolute;
+  z-index: 3;
+  right: 0px;
+  left: 0px;
+  top: 0px;
+  color: $primary-color;
+
+  .menu-mobile {
+    display: none;
+  }
+
+  .header-inner {
+    padding: 15px 45px;
+  }
+
+  h1 {
+    font-size: 21px;
+    margin: 0px;
+    display: inline-block;
+    cursor: pointer;
+    img {
+      position: relative;
+      height: 25px;
+      width: 25px;
+      top: 6px;
+    }
+  }
+  nav{
+    float: right;
+    display: inline-block;
+
+    ul {
+      position: relative;
+      top: 5px;      
+      display: inline-block;
+      list-style: none;
+      margin: 0px;
+      padding-left: 0px;
+      li {
+        cursor: pointer;
+        float: left;
+
+        &:after {
+          position: relative;
+          top: 10px;
+          content: '';
+          display: block;
+          margin: auto;
+          height: 2px;
+          width: 0px;
+          background: transparent;
+          transition: width .5s ease, background-color .5s ease;
+        }
+        &:hover:after {
+          width: 100%;
+          background: $primary-color;
+        }
+
+        a {
+          padding: 5px 15px;
+          text-decoration: none;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+header, footer {
+  mat-icon {
+    margin-top: -10px;
+    top: 6px;
+    position: relative;
+  }
+}
+
+.mat-mdc-menu-item {
+  color: $primary-color !important;
+}
+
+.header-with-background {
+  padding: 15px;
+  position: fixed;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+  z-index: 3;
+  top: 0px;
+  background: #fff;
+  // *{
+  //     color: #000 !important;
+  // }
+}
+/*------------
+Header [End]
+--------------*/
+
+
+
+/*------------
+Footer [Start]
+--------------*/
+footer {
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  text-align: center;
+  // background: $foreground-color;
+  // margin-top: 45px;
+
+  .footer-inner {
+    padding: 25px 45px;
+  }
+  nav{
+    // float: right;
+    display: inline-block;
+
+    ul {
+      position: relative;
+      top: 5px;      
+      display: inline-block;
+      list-style: none;
+      margin: 0px;
+      li {
+        cursor: pointer;
+        float: left;
+
+        &:after {
+          position: relative;
+          top: 10px;
+          content: '';
+          display: block;
+          margin: auto;
+          height: 2px;
+          width: 0px;
+          background: transparent;
+          transition: width .5s ease, background-color .5s ease;
+        }
+        &:hover:after {
+          width: 100%;
+          background: $primary-color;
+          // background: #fff;
+        }
+
+        a {
+          padding: 5px 15px;
+          text-decoration: none;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .rights {
+    border-top: solid 1px $primary-color;
+    margin-top: 25px;
+    padding-top: 20px;
+
+    mat-icon {
+      position: relative;
+      top: 6px;
+      margin-right: 5px;
+    }
+  }
+}
+/*------------
+Footer [End]
+--------------*/
+
+
+/*--------------
+  Home [Start]
+----------------*/
+.home {
+  // margin-bottom?
+}
+
+/*--------------
+  Home [End]
+----------------*/
+
+/*--------------
+  For Animation [Start]
+----------------*/
+.pr-n-800 {
+  position: relative;
+  opacity: 0;
+  right: -800px;
+  transition: all 300ms linear;
+}
+
+.pr-n-1200 {
+  position: relative;
+  opacity: 0;
+  right: -1200px;
+  transition: all 300ms linear;
+}
+
+.pr-0 {
+  right: 0px !important;
+  opacity: 1 !important;
+  transition: all 300ms linear;
+}
+
+.pl-n-800 {
+  position: relative;
+  opacity: 0;
+  left: -800px;
+  transition: all 300ms linear;
+}
+
+.pl-n-1200 {
+  position: relative;
+  opacity: 0;
+  left: -1200px;
+  transition: all 300ms linear;
+}
+
+.pl-0 {
+  opacity: 1 !important;
+  left: 0px !important;
+  transition: all 300ms linear;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.pb-0 {
+  padding-bottom: 0px;
+}
+/*--------------
+  For Animation [End]
+----------------*/
+
+
+/*--------------
+  Banner [Start]
+----------------*/
+.banner-bg {
+  background: rgba(229,141,189, 0.7);
+  background: linear-gradient(148deg, #fff 0%, #fff 40%, rgba(229,141,189,0.5) 40%, rgba(229,141,189,0.5) 100%);
+}
+.banner-careers-bg {
+  display: block !important;
+  height: auto !important;
+  background: rgb(149,47,151);
+  background: linear-gradient(148deg, #fff 0%, #fff 40%, rgba(149,47,151,0.5) 40%, rgba(149,47,151,0.5) 100%);
+}
+.banner {
+  padding: 0px 50px;
+  padding-bottom: 25px !important;
+  overflow: auto;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  // color: #fff;
+  .banner-text {
+    @extend .pr-n-800;
+    // float: left;
+    // display: inline;
+    // width: 485px;
+    text-align: left;
+    h1 {
+      line-height: 1.3;
+      width: 510px;
+      letter-spacing: 1px;
+      margin-top: 80px;
+      text-align: left;
+    }
+    p {
+      line-height: 1.5;
+      text-align: justify;
+      margin-bottom: 30px;
+    }
+  }
+  .banner-contact-us {
+    display: inline;
+    float: right;
+  }
+}
+
+.banner-img, .banner-careers-img {
+  @extend .pl-n-800;
+  height: 400px;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+}
+
+.banner-img {
+  margin-right: 15px;
+  background-image: url("./assets/imgs/banner.png");
+  background-position: center;
+}
+
+.banner-careers-img {
+  background-image: url("./assets/imgs/careers/job-flat.png");
+}
+/*--------------
+  Banner [End]
+----------------*/
+
+
+/*--------------
+  Typography [End]
+----------------*/
+.page-header {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 40px;
+}
+
+.secondary-color {
+  color: $secondary-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-success {
+  color: $success-color;
+}
+/*--------------
+  Typography [End]
+----------------*/
+
+
+/*--------------
+  Careers [Start]
+----------------*/
+.banner-careers {
+  margin-top: 55px;
+}
+
+.wave-bg {
+  position: fixed;
+  bottom: 0px;
+  z-index: 0;
+}
+
+.careers {
+  // min-height: 70vh;
+  position: relative;
+  z-index: 1;
+
+  h1 {
+    margin-top: 105px;
+    margin-bottom: 45px;
+  }
+  .item {
+    border: solid 1px $primary-color;
+    border-left: solid 5px $primary-color;
+    border-radius: 25px;
+    padding: 22px 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background: $foreground-color;
+
+    mat-icon {
+      position: relative;
+      top: 5px;
+    }
+
+    h2 {
+      margin-bottom: 0px;
+      margin-top: 5px;
+      font-size: 21px;
+    }
+
+    .location {
+
+    }
+  }
+}
+
+/*--------------
+  Careers [End]
+----------------*/
+
+
+
+/*--------------
+  Service [Start]
+----------------*/
+.services {
+  background: $foreground-color !important;
+  
+  .list {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .list-item {
+    @extend .pl-n-1200;
+    border: none !important;
+    padding: 0px !important;
+    
+    img {
+      width: 100%;
+      height: auto;
+      float: left;
+      border-radius: 100%;
+    }
+
+    .col-left {
+      width: 25%;
+    }
+
+    .col-right {
+      width: 75%;
+    }
+  }
+}
+
+.why-our-services {
+  // background:rgba(149,47,151,0.5) !important;
+  background: rgb(149,47,151);
+  background: linear-gradient(104deg, rgba(149,47,151,0.5) 0%, rgba(149,47,151,0.5) 45%, rgba(149,47,151,0.6) 45%, rgba(149,47,151,0.6) 100%) !important;
+
+  .list-item {
+    border: solid 2px $primary-color !important;
+    border-top: solid 5px $primary-color !important;
+
+    mat-icon {
+      color: $primary-color !important;
+    }
+  }
+}
+/*--------------
+  Service [End]
+----------------*/
+
+
+/*--------------
+  Buttons [Start]
+----------------*/
+.mdc-button {
+  border-radius: 25px !important;
+  padding: 0px 25px !important;
+  height: 45px !important;
+  mat-icon {
+    float: right;
+  }
+  span {
+    float: left;
+  }
+}
+/*--------------
+  Buttons [End]
+----------------*/
+
+
+
+/*-------------------------
+  Mission Vision Goal [Start]
+----------------------------*/
+.mission-vision {
+  background-image: url("./assets/imgs/mission-vision.avif");
+  overflow-x: hidden;
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding-top: 45px;
+  padding-bottom: 25px;
+
+  .list {
+    padding: 0px;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    width: 100%;
+    text-align: center;
+
+    .img {
+      width: 100%;
+      float: left;
+    }
+    img {
+      position: relative;
+      // width: 150px;
+      height: 100px;  
+      // float: left;
+      // top: 50px;
+      border-radius: 50px;
+      margin: 0px auto;
+      margin-bottom: 25px;
+      margin-top: 10px;
+    }
+    h2, p {
+      margin: 5px 0px;
+      width: 100%;
+      // float: left;
+      color: #fff;
+      // text-align: left;
+    }
+    h2 {
+      margin-bottom: 15px;
+      // text-align: center;
+    }
+    p {
+      text-align: left;
+    }
+    li {
+      color: #fff;
+      // text-align: left;
+    }
+  }
+  .list-item {
+    display: flex;
+    padding: 0.5em;
+    margin-bottom: 20px;
+    background: rgba(149,47,151,0.8);
+    padding: 40px 30px;
+    border-radius: 10px;
+  }
+  .list-content {
+    width: 100%;
+  }
+  .goal {
+    padding-left: 10px;
+    li {
+      text-align: left;
+    }
+  }
+}
+/*-------------------------
+  Mission Vision Goal [End]
+----------------------------*/
+
+
+
+
+/*-------------------------
+  Problem Solution [Start]
+----------------------------*/
+.problem-solution {
+  overflow-x: hidden;
+  margin-bottom: 40px;
+
+  .problem {
+    width: 50%;
+    overflow: auto;
+    position: relative;
+    float: left;
+    
+    .img {
+      width: 50%;
+      float: left;
+      // text-align: right;
+      img {
+        // position: relative;
+        // right: 0px;
+        width: 200px;
+        float: left;
+        z-index: 0;
+        float: right;
+        margin-right: 25px;
+      }
+    }
+    .item {
+      width: 50%;
+      position: relative;
+      float: left;
+      z-index: 1;
+    }
+  }
+  .solution {
+    width: 50%;
+    overflow: auto;
+    position: relative;
+    float: left;
+    margin-top: 100px;
+    color: $success-color;
+    background: #fff;
+
+    button {
+      background: $success-color;
+    }
+    
+    .img {
+      width: 50%;
+      float: left;
+      // text-align: right;
+      img {
+        // position: relative;
+        // right: 0px;
+        width: 200px;
+        float: left;
+        z-index: 0;
+        float: left;
+        margin-right: 25px;
+      }
+    }
+    .item {
+      text-align: right;
+      width: 50%;
+      position: relative;
+      float: left;
+      z-index: 1;
+      margin-bottom: 25px;
+      z-index: 1;
+      .white-box {
+        margin-left: 15px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.2);
+}
+
+.white-box {
+  border-radius: 25px;
+  padding: 25px;
+  @extend .box-shadow;
+}
+/*-------------------------
+  Problem Solution [End]
+----------------------------*/
+
+
+/*-------------------------
+  Contact Form [Start]
+----------------------------*/
+.contact {
+  position: relative;
+  overflow: auto;
+  padding: 15px 45px;
+  padding-bottom: 25px;
+
+  form {
+    text-align: right;
+  }
+}
+
+form {
+  mat-error {
+    position: relative;
+    left: -20px;
+    top: -1px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  mat-label {
+    font-weight: 400;
+  }
+
+  button, .mdc-button {
+    font-size: 18px;
+    height: 50px !important;
+    background: linear-gradient(104deg, rgba(56,45,113,1) 0%, rgba(149,47,151,1) 56%, rgba(149,47,151,1) 100%) !important;
+  }
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 25px !important;
+  position: relative;
+}
+
+.mdc-dialog__container {
+  margin: 0px 15px;
+}
+
+.close-icon {
+  position: absolute;
+  right: 3px;
+  top: 5px;
+  padding: 5px;
+  cursor: pointer;
+  z-index: 2;
+  color: $primary-color !important;
+}
+
+.contact-details {
+  ul {
+    padding-left: 0;
+    list-style: none;
+    padding-bottom: 25px;
+    img {
+      margin-right: 5px;
+      height: 12px;
+    }
+    span {
+      font-size: 14px;
+    }
+    li {
+      display: inline;
+      float: left;
+      margin-right: 5px;
+    }
+  }
+}
+/*-------------------------
+  Contact Form [End]
+----------------------------*/
+
+
+/*-------------------------
+  Why Us [Start]
+----------------------------*/
+.why-us, .services {
+  // background: $background-color;
+  background: rgba(114,137,46,0.1);
+  // background: linear-gradient(148deg, rgba(114,137,46,0.9) 0%, rgba(114,137,46,0.9) 50%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.7) 100%);
+  padding-bottom: 25px;
+
+  .list {
+    padding: 0px;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    width: 100%;
+    // text-align: center;
+
+    .list-item {
+      display: flex;
+      padding: 0.5em;
+      margin-bottom: 20px;
+      padding: 40px 30px;
+      border-radius: 25px;
+      border: solid 2px $success-color;
+      border-top: solid 5px $success-color;
+      background: #fff;
+    }
+    .list-content {
+      width: 100%;
+      display: table-row;
+      // color: $success-color;
+
+      .col-left, .col-right {
+          display: table-cell;
+          vertical-align: middle;
+      }
+
+      mat-icon {
+        padding-right: 10px;
+        color: $success-color;
+      }
+    }
+  }
+}
+/*-------------------------
+  Why Us [End]
+----------------------------*/
+
+
+/*------------
+Login [Start]
+--------------*/
+.login-container {
+  // position: fixed;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  // background: $foreground-color;
+  background: rgba(149,47,151,0.1);
+  display : flex;
+  align-items : center;
+
+  .inner {
+    text-align: center;
+    margin: 0px auto;
+    form {
+      background: $foreground-color;
+      border-radius: 25px;
+      width: 500px;
+      padding: 55px 50px;
+      overflow: hidden;
+
+      button {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+/*------------
+Login [End]
+--------------*/
+
+
+/*------------
+Media Queries [End]
+--------------*/
+// Header
+@media only screen and (max-width: 1050px) {
+  header {
+    h1 {
+      font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    .header-inner {
+      padding: 15px;
+    }
+    .menu-desktop {
+      display: none;
+    }
+    .menu-mobile {
+      display: block;
+      position: relative;
+      top: -10px;
+      right: -5px;
+    }
+  }
+
+  footer {
+    nav {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  header {
+    img {
+      display: none;
+    }
+
+    .menu-mobile {
+      top: -18px;
+    }
+  }
+}
+
+
+// Banner
+@media only screen and (max-width: 1000px) {
+  .banner {
+    h1 {
+      font-size: 21px;
+      width: 100% !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .banner {
+    .w-50 {
+      width: 100%;
+    }
+    h1 {
+      margin-top: 50px !important;
+    };
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    h1 {
+      font-size: 16px;
+      margin-top: 0px !important;
+    };
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .banner {
+    padding: 0px 25px;
+    .banner-img {
+      height: 300px;
+    };
+    p {
+      text-align: left !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .banner {
+    .banner-img {
+      height: 250px;
+    };
+  }
+}
+
+
+// Service
+@media only screen and (max-width: 1200px) {
+  .row {
+    .services {
+      .list {
+        width: auto;
+        padding: 0px 20px;
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .row {
+    .services {
+      .list {
+        grid-template-columns: repeat(1, 1fr) !important;
+      }
+      .pl-n-1200 {
+        left: 0px;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .row {
+    .services {
+      h2 {
+        font-size: 16px;
+      };
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .row {
+    .services {
+      .col-left, .col-right {
+        text-align: center;
+        width: 100% !important;
+        display: block !important;
+        overflow: hidden;
+        img {
+          width: 50%;
+          display: block;
+          margin: 0px auto;
+          float: none;
+        }
+      };
+    }
+  }
+}
+
+
+// Why our Service & Why Us
+@media only screen and (max-width: 1200px) {
+  .why-us {
+    .list {
+      width: auto;
+      padding: 0px 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .why-us {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .why-us {
+    .list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+
+// Mission Vision Goal
+@media only screen and (max-width: 1200px) {
+  .mission-vision {
+    .list {
+      width: auto;
+      padding: 0px 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .mission-vision {
+    .pr-n-1200 {
+      right: 0px;
+      opacity: 1;
+    }
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .mission-vision {
+    .list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+
+// Problem & Solution
+@media only screen and (max-width: 1200px) {
+  .problem-solution {
+    width: auto;
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .problem-solution {
+    .problem, .solution {
+        width: 100%;
+        float: none;
+    }
+    .solution {
+      img {
+        margin-left: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .problem-solution {
+    .problem {
+      img {
+        margin-right: 10px;
+      }
+    }
+    .solution {
+      img {
+        margin-left: 10px;
+      }
+    }
+
+    .problem, .solution {
+      overflow: hidden;
+      width: auto;
+      .white-box {
+        box-shadow: none;
+      }
+      .item {
+        width: 70%;
+      }
+      .img {
+        width: 30%;
+      }
+    }
+  }
+}
+
+
+// Login
+@media only screen and (max-width: 650px) {
+  .login-container {
+    // display: block;
+    width: 100vw;
+    
+    .inner {
+      width: auto;
+      padding: 0px 15px;
+    }
+    form {
+      width: auto !important;
+      // margin: 0px 25px;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .problem-solution {
+    .problem, .solution {
+        width: 100%;
+        float: none;
+    }
+    .solution {
+      img {
+        margin-left: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .problem-solution {
+    .problem {
+      img {
+        margin-right: 10px;
+      }
+    }
+    .solution {
+      img {
+        margin-left: 10px;
+      }
+    }
+
+    .problem, .solution {
+      overflow: hidden;
+      width: auto;
+      .white-box {
+        box-shadow: none;
+      }
+      .item {
+        width: 70%;
+      }
+      .img {
+        width: 30%;
+      }
+    }
+  }
+}
+/*------------
+Media Queries [End]
+--------------*/

@@ -1,0 +1,26 @@
+<div class="container why-us" id="why-us" #wuContainer>
+    <div class="row">
+        <h1 class="page-header">
+            <span>Why </span>
+            <span class="secondary-color">Us</span>
+        </h1>
+
+        <ul class="list {{wuClass}}">
+
+            <li class="list-item" *ngFor="let row of why_us">
+                <div class="list-content">
+                    <!-- <mat-icon class="col-left">check</mat-icon> -->
+                    <mat-icon class="col-left">check_box</mat-icon>
+                    <div class="col-right">
+                        <h2>
+                            {{row.title}}: 
+                        </h2>
+                        <span>
+                            {{row.description}}
+                        </span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
