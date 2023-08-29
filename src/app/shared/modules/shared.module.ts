@@ -30,6 +30,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { RouterModule } from '@angular/router';
 import { MenuComponent } from 'src/app/partial/menu/menu.component';
 import { MenuMobileComponent } from 'src/app/partial/menu-mobile/menu-mobile.component';
+import { LogoutComponent } from 'src/app/partial/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MenuMobileComponent } from 'src/app/partial/menu-mobile/menu-mobile.com
     MenuComponent,
     ContactUsComponent,
     MenuMobileComponent,
-    GetStartedComponent
+    GetStartedComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
@@ -70,6 +72,7 @@ import { MenuMobileComponent } from 'src/app/partial/menu-mobile/menu-mobile.com
     ContactUsComponent,
     MenuMobileComponent,
     GetStartedComponent,
+    LogoutComponent,
     CommonModule,
     MatIconModule,
     MatInputModule,

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-menu-mobile',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./menu-mobile.component.scss']
 })
 export class MenuMobileComponent {
+  @Input() isLoggedIn: any;
 
+  constructor(
+    private authService: AuthService
+  ) {
+  }
+
+  logout = () => {
+    this.authService.logout()
+  };
 }

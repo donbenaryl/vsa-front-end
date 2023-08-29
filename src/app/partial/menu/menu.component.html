@@ -14,9 +14,18 @@
     <li pageScroll [pageScrollOffset]="90" href="#problem-solution"  [routerLink]="['/home/problem-solution']" routerLinkActive="active">
         <a>Problems & Solutions</a>
     </li>
-    <li  [routerLink]="['/auth/login']" routerLinkActive="active">
+    <li *ngIf="!isLoggedIn" [routerLink]="['/auth/login']" routerLinkActive="active">
         <a>Login</a>
     </li>
+
+    <!-- MENU WHEN LOGGED IN -->
+    <li *ngIf="isLoggedIn" [matMenuTriggerFor]="adminMenu" routerLinkActive="active">
+        <a >
+            Admin
+            <mat-icon>arrow_drop_down</mat-icon>
+        </a>
+    <li>
+    <app-logout *ngIf="isLoggedIn"></app-logout>
 </ul>
 
 <!-- MENU START -->
@@ -28,4 +37,10 @@
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#mission-vision"  [routerLink]="['/home/mission-vision']" >Mission Vision Goals</button>
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-us"  [routerLink]="['/home/why-us']" >Why Choose Us</button>
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#careers"  [routerLink]="['/careers']" >Careers</button>
+</mat-menu>
+<mat-menu #adminMenu="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/basic-details']" >Basic Details</button>
+    <button mat-menu-item [routerLink]="['/admin/basic-details']" >Services</button>
+    <button mat-menu-item [routerLink]="['/admin/basic-details']" >Why Get Our Services</button>
+    <button mat-menu-item [routerLink]="['/admin/basic-details']" >Why Us</button>
 </mat-menu>

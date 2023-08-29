@@ -1,4 +1,6 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  @Input() isLoggedIn: any;
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
       const scrollOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;

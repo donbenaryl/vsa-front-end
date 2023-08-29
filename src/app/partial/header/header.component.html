@@ -6,12 +6,12 @@
         </h1>
         <nav class="menu-desktop">
             <!-- MENU END -->
-            <app-menu></app-menu>
+            <app-menu [isLoggedIn]="isLoggedIn"></app-menu>
 
             <app-get-started></app-get-started>
         </nav>
 
-        <app-menu-mobile></app-menu-mobile>
+        <app-menu-mobile [isLoggedIn]="isLoggedIn"></app-menu-mobile>
     </div>
 </header>
   

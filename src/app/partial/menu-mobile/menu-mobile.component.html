@@ -6,7 +6,8 @@
         <button mat-menu-item [matMenuTriggerFor]="serviceMenu">Services</button>
         <button mat-menu-item [matMenuTriggerFor]="aboutMenu">About Us</button>
         <button mat-menu-item pageScroll  pageScroll [pageScrollOffset]="90" href="#problem-solution"  [routerLink]="['/home/problem-solution']">Problems & Solutions</button>
-        <button mat-menu-item [routerLink]="['/auth/login']">Login</button>
+        <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/auth/login']">Login</button>
+        <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
 </nav>
 

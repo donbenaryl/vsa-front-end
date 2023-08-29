@@ -5,12 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/modules/shared.module';
-import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdminComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

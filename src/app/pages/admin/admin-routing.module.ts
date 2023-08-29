@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from './auth.component';
-import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin.component';
+import { BasicDetailsComponent } from './basic-details/basic-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AuthComponent,
+    component: AdminComponent,
     children: [
       {
-        path: 'login',
-        component: LoginComponent
+        path: 'basic-details',
+        component: BasicDetailsComponent
       },
       {
         path: '',
-        component: AuthComponent
+        component: AdminComponent
       },
     ]
   },
@@ -30,4 +30,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class AuthRoutingModule { }
+export class AdminRoutingModule { }

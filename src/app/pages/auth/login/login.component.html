@@ -7,14 +7,14 @@
         <form [formGroup]="form" (submit)="submit()">
             <mat-form-field
                 appearance="outline" class="w-100 mt-10">
-                <mat-label>Username</mat-label>
+                <mat-label>Email</mat-label>
                 <input
-                formControlName="username"
+                formControlName="email"
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('username')?.errors">
-                Username required
+                <mat-error class="mp-0" *ngIf="form.get('email')?.errors">
+                Email required
                 </mat-error>
             </mat-form-field>
 
@@ -23,13 +23,27 @@
                 <mat-label>Password</mat-label>
                 <input
                 formControlName="password"
-                matInput type="text"
+                matInput
+                type="{{passType}}"
                 autocomplete="off">
         
                 <mat-error class="mp-0" *ngIf="form.get('password')?.errors">
                 Password required
                 </mat-error>
+    
+                <!-- <button
+                  type="button"
+                  matSuffix mat-icon-button
+                  class="btn-eye"
+                  (click)="showHidePassword()"
+                >
+                  <mat-icon>eye</mat-icon>
+                </button> -->
             </mat-form-field>
+
+            <p *ngIf="errMsg" class="text-danger m-0">
+                {{errMsg}}
+            </p>
 
             <button type="submit" mat-flat-button color="accent" class="w-100">
                 Login

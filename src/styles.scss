@@ -80,6 +80,7 @@ $tertiary-color: #8477ca;
 // $tertiary-color: #eced81;
 $success-color: #72892e;
 $logo-color: #9536f6;
+$danger-color: #952f97;
 /*-----------
 Colors Start
 ------------*/
@@ -393,6 +394,10 @@ Footer [End]
   margin-bottom: 0px;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .pb-0 {
   padding-bottom: 0px;
 }
@@ -466,7 +471,7 @@ Footer [End]
 
 .banner-img {
   margin-right: 15px;
-  background-image: url("./assets/imgs/banner.png");
+  background-image: url("./assets/imgs/banner-md.png");
   background-position: center;
 }
 
@@ -497,6 +502,10 @@ Footer [End]
 
 .text-success {
   color: $success-color;
+}
+
+.text-danger {
+  color: $danger-color;
 }
 /*--------------
   Typography [End]
@@ -1210,6 +1219,14 @@ Media Queries [End]
         margin-left: 25px;
       }
     }
+    .pl-n-1200 {
+      left: 0px !important;
+      opacity: 1;
+    }
+    .pr-n-1200 {
+      right: 0px !important;
+      opacity: 1;
+    }
   }
 }
 
@@ -1304,4 +1321,16 @@ Media Queries [End]
 }
 /*------------
 Media Queries [End]
+--------------*/
+
+
+/*------------
+Admin Page [Start]
+--------------*/
+.admin-container {
+  margin-top: 55px;
+  height: 60vh;
+}
+/*------------
+Admin Page [End]
 --------------*/
