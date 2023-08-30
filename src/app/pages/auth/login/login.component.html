@@ -24,7 +24,7 @@
                 <input
                 formControlName="password"
                 matInput
-                type="{{passType}}"
+                [type]="passType"
                 autocomplete="off">
         
                 <mat-error class="mp-0" *ngIf="form.get('password')?.errors">

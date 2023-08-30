@@ -1,8 +1,6 @@
 export const environment = {
-  production: true,
-  apiUrl: 'https://api-terminal.syslit.io',
-  managerUrl: 'https://api-live-manager.syslit.io/api',
-  managerApiKey: '2qaHWsPGrrZaoEXnOGQUh7N8eeruPBEMegLk2YF1',
-  wsUrl: 'ws://localhost:8001',
+  production: false,
+  apiUrl: 'http://vsa-be.azie-don.com',
+  tokenSecretKey: '12da3c99a9c42c33347b67e452af5e8b9bad81bc4fbfb777af9749cbc6e5399d',
   apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlbWFpbEBlbWFpbC5jb20iLCJleHAiOjE2ODMyOTQzODF9.ER2SxJ2e5GkEMCfPUOv3wHV247Vv2zWpThEiwrjf3KI'
 };
