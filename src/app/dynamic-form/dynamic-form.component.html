@@ -1,0 +1,126 @@
+<h1 class="page-header">
+    <span *ngIf="['Goals', 'Services', 'Careers'].includes(this.pageModule)">{{this.pageModule}}</span>
+
+    <span *ngIf="this.pageModule == 'WhyUs'">
+        <span>Why </span>
+        <span class="secondary-color">Us</span>
+    </span>
+
+    <span *ngIf="this.pageModule == 'WhyOurServices'">
+        <span>Why Our </span>
+        <span class="secondary-color">Services</span>
+    </span>
+
+    <span *ngIf="this.pageModule == 'OurTeam'">
+        <span>Our </span>
+        <span class="secondary-color">Team</span>
+    </span>
+</h1>
+
+<form class="add-goals-form" [formGroup]="form" (submit)="save()">
+    <ng-container formArrayName="dynamicData">
+        <ng-container *ngFor="let dynamicForm of dynamicData.controls; let i = index">
+            <div class="goals-row" [formGroup]="dynamicForm">
+
+                <li class="list-form">
+                    <div class="item">
+                        <div class="col-left">
+                            <div *ngIf="['OurTeam', 'Services'].includes(this.pageModule)">
+                                <input
+                                    type="file"
+                                    class="file-input"
+                                    (change)="onFileSelected($event, i)"
+                                    #fileUpload
+                                >
+                                <div class="file-upload" [ngClass]="{'avatar' : pageModule === 'OurTeam'}">
+                                    <img *ngIf="dynamicForm.get('img')?.value !== ''" [src]="dynamicForm.get('img')?.value" class="preview">
+                                    <button
+                                        type="button"
+                                        mat-mini-fab color="accent"
+                                        class="upload-btn"
+                                        (click)="fileUpload.click()"
+                                    >
+                                        <mat-icon>attach_file</mat-icon>
+                                    </button>
+
+                                    <span>
+                                        {{dynamicForm.get('imgName')?.value || "No file uploaded yet."}}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div *ngIf="this.pageModule !== 'Careers'">
+                                <mat-form-field appearance="fill" class="mr-10 fw-500">
+                                    <mat-label *ngIf="pageModule !== 'OurTeam'">Title</mat-label>
+                                    <mat-label *ngIf="pageModule === 'OurTeam'">Name</mat-label>
+                                    <input matInput
+                                           formControlName="title"
+                                           placeholder="Title">
+                                </mat-form-field>
+                                <mat-error *ngIf="dynamicForm.get('title')?.errors">
+                                Title required
+                                </mat-error>
+                            </div>
+
+                            <div *ngIf="this.pageModule === 'Careers'">
+                                <mat-form-field appearance="fill" class="mr-10 fw-500">
+                                    <mat-label>Position</mat-label>
+                                    <input matInput
+                                           formControlName="title"
+                                           placeholder="Position">
+                                </mat-form-field>
+                                <mat-error *ngIf="dynamicForm.get('title')?.errors">
+                                Position required
+                                </mat-error>
+                            </div>
+
+                            <div *ngIf="this.pageModule === 'Careers'">
+                                <mat-form-field appearance="fill" class="mr-10 fw-500">
+                                    <mat-label>Location</mat-label>
+                                    <mat-select formControlName="location">
+                                    <mat-option *ngFor="let location of locations" [value]="location">{{location}}</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+            
+                            <div>
+                                <mat-form-field appearance="fill" class="mr-10">
+                                    <mat-label>Description</mat-label>
+                                    <textarea matInput
+                                        formControlName="description"
+                                        placeholder="Description"></textarea>
+                                </mat-form-field>
+                                <mat-error *ngIf="dynamicForm.get('description')?.errors">
+                                Description required
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="col-right">
+                            <button mat-mini-fab (click)="deleteRow(i)" class="btn-flat-danger">
+                                <!-- <mat-icon class="add-goals-btn">add</mat-icon> -->
+                                <mat-icon>
+                                    delete_forever</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </li>
+                
+            </div>
+        </ng-container>
+    </ng-container>
+  
+    <div class="text-left">
+        <button type="button" mat-mini-fab (click)="addRow()">
+            <mat-icon class="add-goals-btn">add</mat-icon>
+        </button>
+    </div>
+
+
+    <div class="text-right">
+        <button type="submit" class="mr-10" mat-flat-button color="accent">
+            <span>Save</span>
+            <mat-icon>save</mat-icon>
+        </button>
+    </div>
+
+</form>

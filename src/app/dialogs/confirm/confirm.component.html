@@ -1,0 +1,35 @@
+<mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
+
+<div class="dialog-container">
+    <h1 class="dialog-title" matDialogTitle [innerHtml]="data.title"></h1>
+
+    <p *ngIf="data.before">
+        <strong>Before: </strong>
+        <span class="preview-container" [innerHtml]="data.before"></span>
+    </p>
+    <p *ngIf="data.after">
+        <strong>After: </strong>
+        <span class="preview-container" [innerHtml]="data.after"></span>
+    </p>
+
+    <div class="pull-right dialog-footer">
+        <button
+            type="button"
+            class="pull-left mr-10"
+            mat-flat-button
+            color="accent"
+            [mat-dialog-close]="true"
+        >
+            {{ data.confirmText || 'Confirm' }}
+        </button>
+        <button
+            type="button"
+            class="pull-left"
+            mat-stroked-button
+            color="accent"
+            [mat-dialog-close]="false"
+        >
+        {{ data.cancelText || 'Cancel' }}
+        </button>
+    </div>
+</div>

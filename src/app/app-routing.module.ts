@@ -4,6 +4,7 @@ import { AdminModule } from './pages/admin/admin.module';
 import { AuthModule } from './pages/auth/auth.module';
 import { CareersModule } from './pages/careers/careers.module';
 import { HomeModule } from './pages/home/home.module';
+import { OurTeamModule } from './pages/our-team/our-team.module';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => AdminModule,
+  },
+  {
+    path: 'our-team',
+    loadChildren: () => OurTeamModule,
   }
 ];
 

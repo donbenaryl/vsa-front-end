@@ -6,6 +6,7 @@
         <button mat-menu-item [matMenuTriggerFor]="serviceMenu">Services</button>
         <button mat-menu-item [matMenuTriggerFor]="aboutMenu">About Us</button>
         <button mat-menu-item pageScroll  pageScroll [pageScrollOffset]="90" href="#problem-solution"  [routerLink]="['/home/problem-solution']">Problems & Solutions</button>
+        <button *ngIf="isLoggedIn" mat-menu-item [matMenuTriggerFor]="adminMenu">Admin</button>
         <button *ngIf="!isLoggedIn" mat-menu-item [routerLink]="['/auth/login']">Login</button>
         <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()">Logout</button>
       </mat-menu>
@@ -19,4 +20,15 @@
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#mission-vision"  [routerLink]="['/home/mission-vision']" >Mission Vision Goals</button>
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#why-us"  [routerLink]="['/home/why-us']" >Why Choose Us</button>
     <button mat-menu-item pageScroll [pageScrollOffset]="90" href="#careers"  [routerLink]="['/careers']" >Careers</button>
+    <button mat-menu-item [routerLink]="['/our-team']" >Our Team</button>
+</mat-menu>
+<mat-menu #adminMenu="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/basic-details']" >Basic Details</button>
+    <button mat-menu-item [routerLink]="['/admin/goals']" >Goals</button>
+    <button mat-menu-item [routerLink]="['/admin/services']" >Services</button>
+    <button mat-menu-item [routerLink]="['/admin/why-our-services']" >Why Get Our Services</button>
+    <button mat-menu-item [routerLink]="['/admin/why-us']" >Why Us</button>
+    <button mat-menu-item [routerLink]="['/admin/our-team']" >Our Team</button>
+    <button mat-menu-item [routerLink]="['/admin/careers']" >Careers</button>
+    <button mat-menu-item [routerLink]="['/admin/leads']" >Leads</button>
 </mat-menu>

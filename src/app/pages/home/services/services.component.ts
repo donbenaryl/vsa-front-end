@@ -1,6 +1,8 @@
 import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
 
 import {fromEvent} from 'rxjs';
+import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
+import { IDynamicFormData } from 'src/types/AdminPageTypes';
 
 @Component({
   selector: 'app-services',
@@ -45,95 +47,36 @@ export class ServicesComponent {
 
   whyOurServiceClass = 'pr-n-1200';
 
-  whyOurServices = [
-    {
-      title: 'Access to Top Talent',
-      description: 'We connect you with a curated selection of highly skilled professionals who are experts in their respective fields, ensuring you have access to the best talent available.'
-    },
-    {
-      title: 'Tailored Solutions',
-      description: 'Our platform uses advanced algorithms to match you with virtual staff members who precisely meet your specific project requirements and company culture.'
-    },
-    {
-      title: 'Cost-Effectiveness',
-      description: 'Save on overhead costs associated with traditional in-house hires, such as office space, equipment, and benefits, while still benefiting from top-tier expertise.'
-    },
-    {
-      title: 'Flexibility and Scalability',
-      description: 'Scale your team effortlessly to meet changing business needs without the limitations of geographic boundaries, providing you with agility and adaptability.'
-    },
-    {
-      title: 'Enhanced Productivity',
-      description: 'Leverage remote collaboration tools to streamline communication and project management, boosting productivity and accelerating project timelines.'
-    },
-    {
-      title: 'Global Perspective',
-      description: 'Collaborate with professionals from diverse cultural backgrounds, gaining fresh insights and innovative ideas that can lead to breakthroughs in your business strategies.'
-    },
-    {
-      title: '24/7 Operations',
-      description: 'By tapping into talent from different time zones, you can maintain round-the-clock operations and maximize efficiency without overburdening your local team.'
-    },
-    {
-      title: 'Strategic Focus',
-      description: 'Delegate routine tasks to virtual staff, allowing your core team to focus on high-value tasks, innovation, and strategic decision-making.'
-    },
-    {
-      title: 'Reduced Risk',
-      description: 'Our carefully vetted virtual staff members are committed to delivering quality results, minimizing the risk associated with hiring unknown freelancers.'
-    },
-    {
-      title: 'Global Branding',
-      description: "Harness the power of a global workforce to enhance your brand's presence on an international scale, positioning your business for global success."
-    },
-    {
-      title: 'Customizable Contracts',
-      description: "Choose the engagement model that suits your needs, whether it's short-term project-based collaborations or long-term partnerships."
-    },
-    {
-      title: 'Constant Learning',
-      description: 'We offer continuous learning opportunities to our virtual staff, ensuring they remain updated with the latest industry trends and technologies.'
-    },
-    {
-      title: 'Expert Support',
-      description: 'Benefit from expert consultation services that provide guidance on optimizing your remote work strategy and maximizing the potential of your virtual team.'
-    },
-  ]
+  whyOurServices: IDynamicFormData[] = [];
 
-  services = [
-    {
-      img: 'services/1.webp',
-      title: 'Virtual Staff Placement',
-      description:'Find the perfect virtual staff members, including virtual assistants, designers, developers, marketers, customer support agents, and more.'
-    },
-    {
-      img: 'services/2.jpg',
-      title: 'Custom Talent Matching',
-      description:'Our AI-driven system matches businesses with the most suitable virtual staff based on their requirements and preferences.'
-    },
-    {
-      img: 'services/3.png',
-      title: 'Project Management Tools',
-      description:'Access integrated tools for efficient project tracking, communication, and collaboration, ensuring seamless teamwork across time zones.'
-    },
-    {
-      img: 'services/4.avif',
-      title: 'Flexible Contracts',
-      description:'Choose from a range of contract options, from short-term projects to long-term partnerships, providing businesses the adaptability they need.'
-    },
-    {
-      img: 'services/5.jpg',
-      title: 'Training & Development',
-      description:'Empower virtual staff with continuous learning opportunities to stay updated with industry trends and enhance their skill sets.'
-    },
-    {
-      img: 'services/6.avif',
-      title: 'Consultation Services',
-      description:'Benefit from expert guidance on remote work strategies, team optimization, and operational efficiency.'
-    },
-  ]
+  services: IDynamicFormData[] = [];
+
+  constructor(
+    private webContentsService: WebContentsService,
+  ) {
+    this.fetchServices();
+    this.fetchWhyOurServices();
+  }
 
   ngOnInit(): void {
+  }
+
+  fetchServices = () => {
+    this.webContentsService.fetchServices()
+      .subscribe(
+        (res) => {
+          this.services = res;
+        }
+      )
+  }
+
+  fetchWhyOurServices = () => {
+    this.webContentsService.fetchWhyOurServices()
+      .subscribe(
+        (res) => {
+          this.whyOurServices = res;
+        }
+      )
   }
 
 }

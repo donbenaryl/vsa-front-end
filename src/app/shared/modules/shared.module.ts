@@ -31,15 +31,21 @@ import { RouterModule } from '@angular/router';
 import { MenuComponent } from 'src/app/partial/menu/menu.component';
 import { MenuMobileComponent } from 'src/app/partial/menu-mobile/menu-mobile.component';
 import { LogoutComponent } from 'src/app/partial/logout/logout.component';
+import { ConfirmComponent } from 'src/app/dialogs/confirm/confirm.component';
+import { AlertComponent } from 'src/app/dialogs/alert/alert.component';
+import { DynamicFormComponent } from 'src/app/dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    AlertComponent,
     MenuComponent,
     ContactUsComponent,
     MenuMobileComponent,
     GetStartedComponent,
+    ConfirmComponent,
+    DynamicFormComponent,
     LogoutComponent
   ],
   imports: [
@@ -69,9 +75,12 @@ import { LogoutComponent } from 'src/app/partial/logout/logout.component';
   exports: [
     HeaderComponent,
     FooterComponent,
+    AlertComponent,
     ContactUsComponent,
     MenuMobileComponent,
     GetStartedComponent,
+    ConfirmComponent,
+    DynamicFormComponent,
     LogoutComponent,
     CommonModule,
     MatIconModule,

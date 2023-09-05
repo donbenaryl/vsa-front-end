@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="careers career-details">
+
+            <h1 class="page-header text-center">
+                <mat-icon class="cpointer" [routerLink]="['/careers']">keyboard_backspace</mat-icon>
+                {{career.title}}
+            </h1>
+            <p class="location">
+                <span>
+                    <mat-icon> location_on</mat-icon>
+                    {{career.location}}
+                </span>
+            </p>
+            
+            <div class="w-100 cpointer">
+                    <p>
+                        {{career.description}}
+                    </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

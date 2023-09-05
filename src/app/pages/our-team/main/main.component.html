@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="careers our-team">
+            <h1 class="page-header">
+                <span>Our </span>
+                <span class="secondary-color">Team</span>
+            </h1>
+
+            <ul>
+                <li *ngFor="let row of team">
+                    <img src="{{row.img}}" />
+                    <div>
+                        <span>{{row.title}}</span>
+                        <p>{{row.description}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

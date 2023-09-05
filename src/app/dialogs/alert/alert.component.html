@@ -1,0 +1,9 @@
+<div
+  *ngIf="!data.isHidden"
+  class="alert-container {{data.type}}">
+  {{data.msg}}
+
+  <span class="close-btn" (click)="closeAlert()">
+    <mat-icon>close</mat-icon>
+  </span>
+</div>

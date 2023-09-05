@@ -1,0 +1,36 @@
+<h1 class="page-header">
+    <span>Basic </span>
+    <span class="secondary-color">Details</span>
+</h1>
+
+<section class="" tabindex="0">
+    <table mat-table [dataSource]="dataSource">
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+    </ng-container>
+
+    <!-- Contact Number Column -->
+    <ng-container matColumnDef="contact_number">
+        <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+        <td mat-cell *matCellDef="let row"> {{row.contact_number}} </td>
+    </ng-container>
+
+    <!-- Company Name Column -->
+    <ng-container matColumnDef="company_name">
+        <th mat-header-cell *matHeaderCellDef> Company Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.company_name}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>

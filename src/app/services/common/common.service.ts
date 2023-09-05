@@ -37,6 +37,7 @@ export class CommonService {
   headerAuthorization = () => ({
     headers: new HttpHeaders()
       .set('Authorization',  `Bearer ${localStorage.getItem('access_token')}`)
+      .set('Content-Type',  `application/json`)
   });
 
   delay = (ms: number) => new Promise((res) => setTimeout(res, ms));

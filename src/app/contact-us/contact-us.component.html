@@ -1,24 +1,30 @@
 <mat-icon class="close-icon" mat-dialog-close>close</mat-icon>
 
 <div class="contact">
-    <h1>
+    <h1 class="mb-0">
         <span>Contact </span>
         <span class="secondary-color">Us</span>
     </h1>
 
     <div class="contact-details">
-        <ul>
+        <ul class="mt-5">
             <li>
                 <img src="./assets/imgs/contact/ph.jpeg" />
-                <span>+639174211608</span>
+                <span>
+                    {{contactNumPh}}
+                </span>
             </li>
             <li>
                 <img src="./assets/imgs/contact/usa.jpeg" />
-                <span>+639174211608</span>
+                <span>
+                    {{contactNumUs}}
+                </span>
             </li>
             <li>
                 <img src="./assets/imgs/contact/uk.jpeg" />
-                <span>+639174211608</span>
+                <span>
+                    {{contactNumUk}}
+                </span>
             </li>
         </ul>
     </div>
@@ -26,7 +32,7 @@
     <div class="w-100">
         <!-- <h2>Send us an email:</h2> -->
 
-        <form [formGroup]="form">
+        <form [formGroup]="form" (submit)="sendEmail()">
             <mat-form-field
                 appearance="outline" class="w-100 mt-10">
                 <mat-label>Name</mat-label>
@@ -35,8 +41,12 @@
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('name')?.errors">
-                Name required
+                <mat-error class="mp-0" *ngIf="form.get('name')?.errors?.['required']">
+                    Name required
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('name')?.errors?.['maxlength']">
+                    Max character length 250
                 </mat-error>
             </mat-form-field>
 
@@ -48,8 +58,16 @@
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('email')?.errors">
-                Email insert a valid email
+                <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['required']">
+                Email required
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['email'] || form.get('email')?.errors?.['pattern']">
+                Please enter a valid email
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['maxlength']">
+                    Max character length 250
                 </mat-error>
             </mat-form-field>
 
@@ -57,12 +75,16 @@
                 appearance="outline" class="w-100 mt-10">
                 <mat-label>Contact Number</mat-label>
                 <input
-                formControlName="contactNumber"
+                formControlName="contact_number"
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('contactNumber')?.errors">
+                <mat-error class="mp-0" *ngIf="form.get('contact_number')?.errors?.['required']">
                 Contact Number required
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('contact_number')?.errors?.['maxlength']">
+                    Max character length 250
                 </mat-error>
             </mat-form-field>
 
@@ -70,12 +92,16 @@
                 appearance="outline" class="w-100 mt-10">
                 <mat-label>Company Name</mat-label>
                 <input
-                formControlName="companyName"
+                formControlName="company_name"
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('companyName')?.errors">
+                <mat-error class="mp-0" *ngIf="form.get('company_name')?.errors?.['required']">
                     Company Name required
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('company_name')?.errors?.['maxlength']">
+                    Max character length 250
                 </mat-error>
             </mat-form-field>
 
@@ -88,8 +114,12 @@
                 matInput type="text"
                 autocomplete="off">
         
-                <mat-error class="mp-0" *ngIf="form.get('subject')?.errors">
+                <mat-error class="mp-0" *ngIf="form.get('subject')?.errors?.['required']">
                     Please enter subject
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('subject')?.errors?.['maxlength']">
+                    Max character length 250
                 </mat-error>
             </mat-form-field>
 
@@ -103,13 +133,21 @@
                 autocomplete="off">
                 </textarea>
         
-                <mat-error class="mp-0" *ngIf="form.get('body')?.errors">
+                <mat-error class="mp-0" *ngIf="form.get('body')?.errors?.['required']">
                     Body required
+                </mat-error>
+        
+                <mat-error class="mp-0" *ngIf="form.get('body')?.errors?.['maxlength']">
+                    Max character length 2000
                 </mat-error>
             </mat-form-field>
 
-            <button mat-flat-button color="accent">
+            <button *ngIf="!isSending" mat-flat-button color="accent" class="btn-gradient">
                 Send
+            </button>
+
+            <button *ngIf="isSending" type="button" disabled mat-flat-button color="accent" class="btn-gradient disabled text-white">
+                Sending...
             </button>
         </form>
     </div>

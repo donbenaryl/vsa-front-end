@@ -26,7 +26,7 @@ export class AuthService {
     const query = (user.rememberMe) ? '?remember_me=True' : '';
 
     return this.http.post<any>(
-      `${this.apiUrl}/login${query}`,
+      `${this.apiUrl}/auth/login${query}`,
       {
         email: user.email,
         password: user.password
@@ -62,7 +62,7 @@ export class AuthService {
 
   fetchCurrentUser(): Observable<any> {
     return this.http.get<any>(
-      `${this.apiUrl}/users/me`,
+      `${this.apiUrl}/auth/users/me`,
       this.commonService.headerAuthorization()
     );
   }

@@ -5,14 +5,15 @@ import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { BasicDetailsComponent } from './basic-details/basic-details.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { LeadsComponent } from './leads/leads.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     BasicDetailsComponent,
-    MenuComponent
+    MenuComponent,
+    LeadsComponent
   ],
   imports: [
     AdminRoutingModule,

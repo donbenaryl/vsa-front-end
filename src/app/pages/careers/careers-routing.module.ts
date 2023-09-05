@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CareersComponent } from './careers.component';
+import { DetailsComponent } from './details/details.component';
+import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
@@ -9,8 +11,12 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: CareersComponent
+        component: MainComponent
       },
+      {
+        path: ':id',
+        component: DetailsComponent
+      }
     ]
   },
 ];

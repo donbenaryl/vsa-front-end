@@ -1,28 +1,4 @@
-<!-- <app-banner></app-banner> -->
-
-<div class="container">
-    <div class="row">
-        <div class="careers">
-
-            <h1 class="page-header text-center">
-                <span>Open position in </span>
-                <span class="secondary-color">all locations</span>
-            </h1>
-            
-            <div class="w-33" *ngFor="let row of careers">
-                <div class="item">
-                    <h2>{{row.title}}</h2>
-                    <!-- <p>{{row.description}}</p> -->
-                    <span class="location">
-                        <mat-icon> location_on</mat-icon>
-                        {{row.country}}
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<router-outlet></router-outlet>
 
 <svg class="wave-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <path fill="#952f97" fill-opacity="1" d="M0,160L34.3,170.7C68.6,181,137,203,206,224C274.3,245,343,267,411,266.7C480,267,549,245,617,245.3C685.7,245,754,267,823,282.7C891.4,299,960,309,1029,282.7C1097.1,256,1166,192,1234,181.3C1302.9,171,1371,213,1406,234.7L1440,256L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>

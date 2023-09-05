@@ -4,13 +4,17 @@ import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { CareersRoutingModule } from './careers-routing.module';
 import { CareersComponent } from './careers.component';
 import { BannerComponent } from './banner/banner.component';
+import { DetailsComponent } from './details/details.component';
+import { MainComponent } from './main/main.component';
 
 
 
 @NgModule({
   declarations: [
     CareersComponent,
-    BannerComponent
+    BannerComponent,
+    DetailsComponent,
+    MainComponent
   ],
   imports: [
     CareersRoutingModule,
