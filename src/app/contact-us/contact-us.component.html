@@ -11,18 +11,21 @@
             <li>
                 <img src="./assets/imgs/contact/ph.jpeg" />
                 <span>
+                    <div *ngIf="isLoading" class="dot-loader"></div>
                     {{contactNumPh}}
                 </span>
             </li>
             <li>
                 <img src="./assets/imgs/contact/usa.jpeg" />
                 <span>
+                    <div *ngIf="isLoading" class="dot-loader"></div>
                     {{contactNumUs}}
                 </span>
             </li>
             <li>
                 <img src="./assets/imgs/contact/uk.jpeg" />
                 <span>
+                    <div *ngIf="isLoading" class="dot-loader"></div>
                     {{contactNumUk}}
                 </span>
             </li>
@@ -147,7 +150,7 @@
             </button>
 
             <button *ngIf="isSending" type="button" disabled mat-flat-button color="accent" class="btn-gradient disabled text-white">
-                Sending...
+                Sending <div class="dot-loader text-white"></div>
             </button>
         </form>
     </div>

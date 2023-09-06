@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent {
+  isLoading = true;
 
   form: FormGroup;
 
@@ -72,8 +73,11 @@ export class ContactUsComponent {
 
           const contactNumUs = res.find((row) => row.col_name === 'contactNumUs')
           this.contactNumUs = contactNumUs?.content || '';
+
+          this.isLoading = false;
         },
         (err) => {
+          this.isLoading = false;
         }
       )
   }
