@@ -1,7 +1,5 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, Input } from '@angular/core';
 
-import {fromEvent} from 'rxjs';
-import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IDynamicFormData } from 'src/types/AdminPageTypes';
 
 @Component({
@@ -47,36 +45,11 @@ export class ServicesComponent {
 
   whyOurServiceClass = 'pr-n-1200';
 
-  whyOurServices: IDynamicFormData[] = [];
+  @Input() whyOurServices: IDynamicFormData[] = [];
 
-  services: IDynamicFormData[] = [];
-
-  constructor(
-    private webContentsService: WebContentsService,
-  ) {
-    this.fetchServices();
-    this.fetchWhyOurServices();
-  }
+  @Input() services: IDynamicFormData[] = [];
 
   ngOnInit(): void {
-  }
-
-  fetchServices = () => {
-    this.webContentsService.fetchServices()
-      .subscribe(
-        (res) => {
-          this.services = res;
-        }
-      )
-  }
-
-  fetchWhyOurServices = () => {
-    this.webContentsService.fetchWhyOurServices()
-      .subscribe(
-        (res) => {
-          this.whyOurServices = res;
-        }
-      )
   }
 
 }

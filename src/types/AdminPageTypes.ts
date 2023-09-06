@@ -37,6 +37,14 @@ export interface IDynamicFormData {
     location?: string;
 }
 
+export interface IHomePageData {
+    basic_details: IBasicDetails[];
+    goals: IDynamicFormData[];
+    services: IDynamicFormData[];
+    why_us: IDynamicFormData[];
+    why_our_services: IDynamicFormData[];
+}
+
 export type IFetchAttributes = 'fetchGoals' | 'fetchServices' | 'fetchWhyUs' | 'fetchWhyOurServices' | 'fetchOurTeam' | 'fetchCareers';
 
 export type IUpdateAttributes = 'updateGoals' | 'updateServices' | 'updateWhyUs' | 'updateWhyOurServices' | 'updateOurTeam' | 'updateCareers';

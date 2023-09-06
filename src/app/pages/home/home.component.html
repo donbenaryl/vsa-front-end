@@ -1,7 +1,7 @@
-<div class="home" id="home">
-    <app-banner></app-banner>
-    <app-services></app-services>
-    <app-mission-vision></app-mission-vision>
-    <app-problems-solutions></app-problems-solutions>
-    <app-why-us></app-why-us>
+<div class="home" id="home" *ngIf="!isLoading">
+    <app-banner [data]="data.basic_details"></app-banner>
+    <app-services [services]="data.services" [whyOurServices]="data.why_our_services"></app-services>
+    <app-mission-vision [data]="data"></app-mission-vision>
+    <app-problems-solutions [data]="data.basic_details"></app-problems-solutions>
+    <app-why-us [whyUs]="data.why_us"></app-why-us>
 </div>

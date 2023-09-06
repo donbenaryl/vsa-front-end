@@ -1,5 +1,6 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, ViewChild } from '@angular/core';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
+import { IBasicDetails } from 'src/types/AdminPageTypes';
 
 @Component({
   selector: 'app-problems-solutions',
@@ -35,23 +36,18 @@ export class ProblemsSolutionsComponent {
       }
   }
 
-  constructor(
-    private webContentsService: WebContentsService,
-  ) {
-    this.fetchBasicDetails();
+  @Input() data: IBasicDetails[] = []
+
+  ngOnInit(): void {
+    this.initData();
   }
 
-  fetchBasicDetails = () => {
-    this.webContentsService.fetchBasicDetails()
-      .subscribe(
-        (res) => {
-          const problem = res.find((row) => row.col_name === 'problem')
-          this.problem = problem?.content || '';
+  initData = () => {
+    const problem = this.data.find((row) => row.col_name === 'problem')
+    this.problem = problem?.content || '';
 
-          const solution = res.find((row) => row.col_name === 'solution')
-          this.solution = solution?.content || '';
-        }
-      )
+    const solution = this.data.find((row) => row.col_name === 'solution')
+    this.solution = solution?.content || '';
   }
 
 }

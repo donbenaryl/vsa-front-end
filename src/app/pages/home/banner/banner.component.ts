@@ -1,5 +1,5 @@
-import { Component, HostListener } from '@angular/core';
-import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
+import { Component, HostListener, Input } from '@angular/core';
+import { IBasicDetails } from 'src/types/AdminPageTypes';
 
 @Component({
   selector: 'app-banner',
@@ -20,6 +20,8 @@ export class BannerComponent {
       }
   }
 
+  @Input() data: IBasicDetails[] = []
+
   bannerBg = './assets/imgs/banner-md.png';
 
   slogan = 'ELEVATE YOUR BUSINESS, EMBRACE THE VIRTUAL FUTURE!';
@@ -30,11 +32,6 @@ export class BannerComponent {
 
   bannerImgClass = 'pl-n-800';
 
-  constructor(
-    private webContentsService: WebContentsService,
-  ) {
-  }
-
   ngOnInit(): void {
     this.bannerBg = 'banner-bg'
     setTimeout(() => {
@@ -42,25 +39,14 @@ export class BannerComponent {
       this.bannerImgClass = 'pl-0';
     }, 100);
 
-    this.fetchBasicDetails();
+    this.initData();
   }
 
-  fetchBasicDetails = () => {
-    this.webContentsService.fetchBasicDetails()
-      .subscribe(
-        (res) => {
-          const bannerBg = res.find((row) => row.col_name === 'bannerImg')
-          this.bannerBg = bannerBg?.content || './assets/imgs/banner-md.png';
+  initData = () => {
+    this.bannerBg = this.data.find((row) => row.col_name === 'bannerImg')?.content || './assets/imgs/banner-md.png';
 
-          const slogan = res.find((row) => row.col_name === 'slogan')
-          this.slogan = slogan?.content || '';
+    this.slogan = this.data.find((row) => row.col_name === 'slogan')?.content || 'ELEVATE YOUR BUSINESS, EMBRACE THE VIRTUAL FUTURE!';
 
-          const aboutUs = res.find((row) => row.col_name === 'aboutUs')
-          this.aboutUs = aboutUs?.content || '';
-        },
-        (err) => {
-
-        }
-      )
+    this.aboutUs = this.data.find((row) => row.col_name === 'aboutUs')?.content || 'Welcome to Virtual Staff Avenue, where excellence meets virtual collaboration. We are a pioneering virtual staff business dedicated to connecting businesses with highly skilled remote professionals to streamline operations, enhance productivity, and catalyze growth. With our unwavering commitment to innovation and quality, we redefine the way businesses operate in a digital era, making geographical barriers a thing of the past.';
   }
 }

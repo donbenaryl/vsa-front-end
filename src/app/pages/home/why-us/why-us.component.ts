@@ -1,4 +1,4 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
+import { Component, HostListener, Input, ViewChild } from '@angular/core';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IDynamicFormData } from 'src/types/AdminPageTypes';
 
@@ -9,7 +9,7 @@ import { IDynamicFormData } from 'src/types/AdminPageTypes';
 })
 export class WhyUsComponent {
   wuClass = 'pr-n-1200';
-  whyUs: IDynamicFormData[] = [];
+  @Input() whyUs: IDynamicFormData[] = [];
 
   @ViewChild('wuContainer', {static: true}) _div: any;
 
@@ -25,20 +25,5 @@ export class WhyUsComponent {
       else {
         this.wuClass = 'pl-n-1200';
       }
-  }
-
-  constructor(
-    private webContentsService: WebContentsService,
-  ) {
-    this.fetchWhyUs();
-  }
-
-  fetchWhyUs = () => {
-    this.webContentsService.fetchWhyUs()
-      .subscribe(
-        (res) => {
-          this.whyUs = res;
-        }
-      )
   }
 }

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CommonService } from '../common/common.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Observable, Subject } from 'rxjs';
-import { IBasicDetails, ILeads, IPageDetails } from 'src/types/AdminPageTypes';
+import { IBasicDetails, IHomePageData, ILeads, IPageDetails } from 'src/types/AdminPageTypes';
 
 @Injectable({
   providedIn: 'root'
@@ -128,6 +128,13 @@ export class WebContentsService {
     return this.http.post<any>(
       `${this.apiUrl}/web-contents/careers`,
       JSON.stringify(data),
+      this.commonService.headerAuthorization()
+    );
+  }
+
+  fetchHomePageData(): Observable<IHomePageData> {
+    return this.http.get<IHomePageData>(
+      `${this.apiUrl}/web-contents/home-page-data`,
       this.commonService.headerAuthorization()
     );
   }

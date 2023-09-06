@@ -1,6 +1,5 @@
-import { Component, HostListener, ViewChild } from '@angular/core';
-import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
-import { IDynamicFormData } from 'src/types/AdminPageTypes';
+import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { IDynamicFormData, IHomePageData } from 'src/types/AdminPageTypes';
 
 @Component({
   selector: 'app-mission-vision',
@@ -8,6 +7,14 @@ import { IDynamicFormData } from 'src/types/AdminPageTypes';
   styleUrls: ['./mission-vision.component.scss']
 })
 export class MissionVisionComponent {
+  @Input() data: IHomePageData = {
+    basic_details: [],
+    goals: [],
+    services: [],
+    why_our_services: [],
+    why_us: []
+  }
+
   mvClass = 'pr-n-1200';
 
   mission = '';
@@ -38,42 +45,27 @@ export class MissionVisionComponent {
       }
   }
 
-  constructor(
-    private webContentsService: WebContentsService,
-  ) {
-    this.fetchBasicDetails();
-    this.fetchGoals();
+  ngOnInit(): void {
+    this.initData();
   }
 
-  fetchBasicDetails = () => {
-    this.webContentsService.fetchBasicDetails()
-      .subscribe(
-        (res) => {
-          const mission = res.find((row) => row.col_name === 'mission')
-          this.mission = mission?.content || '';
+  initData = () => {
+    const mission = this.data.basic_details.find((row) => row.col_name === 'mission')
+    this.mission = mission?.content || '';
 
-          const missionImg = res.find((row) => row.col_name === 'missionImg')
-          this.missionImg = missionImg?.content || '';
+    const missionImg = this.data.basic_details.find((row) => row.col_name === 'missionImg')
+    this.missionImg = missionImg?.content || '';
 
-          const vision = res.find((row) => row.col_name === 'vision')
-          this.vision = vision?.content || '';
+    const vision = this.data.basic_details.find((row) => row.col_name === 'vision')
+    this.vision = vision?.content || '';
 
-          const visionImg = res.find((row) => row.col_name === 'visionImg')
-          this.visionImg = visionImg?.content || '';
+    const visionImg = this.data.basic_details.find((row) => row.col_name === 'visionImg')
+    this.visionImg = visionImg?.content || '';
 
-          const goalsImg = res.find((row) => row.col_name === 'goalsImg')
-          this.goalsImg = goalsImg?.content || '';
-        }
-      )
-  }
+    const goalsImg = this.data.basic_details.find((row) => row.col_name === 'goalsImg')
+    this.goalsImg = goalsImg?.content || '';
 
-  fetchGoals = () => {
-    this.webContentsService.fetchGoals()
-      .subscribe(
-        (res) => {
-          this.goals = res;
-        }
-      )
+    this.goals = this.data.goals;
   }
 
 }
