@@ -10,6 +10,8 @@ import { IDynamicFormData } from 'src/types/AdminPageTypes';
 export class MainComponent {
   careers: IDynamicFormData[] = []
 
+  isLoading = true;
+
   constructor(
     private webContentsService: WebContentsService,
   ) {
@@ -21,7 +23,11 @@ export class MainComponent {
       .subscribe(
         (res) => {
           this.careers = res;
+          this.isLoading = false;
         },
+        (err) => {
+          this.isLoading = false;
+        }
       )
   }
 }

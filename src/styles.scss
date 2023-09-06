@@ -1725,3 +1725,55 @@ Our Team [End]
 /*------------
 Our Team [End]
 --------------*/
+
+
+/*------------
+Loader [End]
+--------------*/
+.loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(#fff, 1);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 100;
+  display : flex;
+  align-items : center;
+}
+.custom-loader {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  margin: 0px auto;
+}
+.custom-loader::before,
+.custom-loader::after {    
+  content:"";
+  grid-area: 1/1;
+  --c: radial-gradient(farthest-side,#766DF4 92%,#0000);
+  background: 
+    var(--c) 50%  0, 
+    var(--c) 50%  100%, 
+    var(--c) 100% 50%, 
+    var(--c) 0    50%;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  animation: s2 1s infinite;
+}
+.custom-loader::before {
+margin:4px;
+filter:hue-rotate(45deg);
+background-size: 8px 8px;
+animation-timing-function: linear
+}
+
+@keyframes s2{ 
+100%{transform: rotate(.5turn)}
+}
+/*------------
+Loader [End]
+--------------*/

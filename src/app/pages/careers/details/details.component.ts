@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent {
+  isLoading = true;
+
   career: IDynamicFormData = {
     id: 0,
     title: '',
@@ -28,6 +30,10 @@ export class DetailsComponent {
       .subscribe(
         (res) => {
           this.career = res;
+          this.isLoading = false;
+        },
+        (err) => {
+          this.isLoading = false;
         }
       )
   }

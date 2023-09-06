@@ -1,3 +1,6 @@
+<div class="loader" *ngIf="isLoading">
+    <div class="custom-loader"></div>
+</div>
 <div class="home" id="home" *ngIf="!isLoading">
     <app-banner [data]="data.basic_details"></app-banner>
     <app-services [services]="data.services" [whyOurServices]="data.why_our_services"></app-services>

@@ -9,6 +9,8 @@ import { IPageDetails } from 'src/types/AdminPageTypes';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
+  isLoading = true;
+
   team: IPageDetails[] = [];
 
   constructor(
@@ -22,6 +24,10 @@ export class MainComponent {
       .subscribe(
         (res) => {
           this.team = res;
+          this.isLoading = false;
+        },
+        (err) => {
+          this.isLoading = false;
         }
       )
   }
