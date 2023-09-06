@@ -5,6 +5,7 @@ import { AuthModule } from './pages/auth/auth.module';
 import { CareersModule } from './pages/careers/careers.module';
 import { HomeModule } from './pages/home/home.module';
 import { OurTeamModule } from './pages/our-team/our-team.module';
+import { UsersModule } from './pages/users/users.module';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'our-team',
     loadChildren: () => OurTeamModule,
+  },
+  {
+    path: 'users',
+    loadChildren: () => UsersModule,
   }
 ];
 

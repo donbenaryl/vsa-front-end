@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { CommonService } from '../common/common.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Observable, Subject } from 'rxjs';
-import { IUser } from 'src/types/AuthTypes';
+import { IChangePasswordParams, INewUser, IUser } from 'src/types/AuthTypes';
 
 @Injectable({
   providedIn: 'root'
@@ -78,4 +78,27 @@ export class AuthService {
           }
         );
   });
+
+  fetchUsers(): Observable<IUser[]> {
+    return this.http.get<any>(
+      `${this.apiUrl}/auth/users`,
+      this.commonService.headerAuthorization()
+    );
+  }
+
+  addUser(data: INewUser): Observable<any> {
+    return this.http.post<any>(
+      `${this.apiUrl}/auth/register`,
+      data,
+      this.commonService.headerAuthorization()
+    );
+  }
+
+  changePassword(data: IChangePasswordParams): Observable<any> {
+    return this.http.post<any>(
+      `${this.apiUrl}/auth/change-password`,
+      data,
+      this.commonService.headerAuthorization()
+    );
+  }
 }

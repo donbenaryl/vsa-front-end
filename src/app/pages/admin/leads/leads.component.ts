@@ -12,6 +12,8 @@ export class LeadsComponent {
 
   displayedColumns = ['name', 'email', 'contact_number', 'company_name'];
 
+  isLoading = true;
+
   constructor(
     private leadsService: LeadsService
   ) {
@@ -23,6 +25,10 @@ export class LeadsComponent {
       .subscribe(
         (res) => {
           this.dataSource = res;
+          this.isLoading = false;
+        },
+        (err) => {
+          this.isLoading = false;
         }
       )
   }

@@ -1,0 +1,60 @@
+<form class="register-containter" [formGroup]="form" (submit)="save()">
+    <mat-form-field
+        appearance="outline" class="w-100 mt-10">
+        <mat-label>Email</mat-label>
+        <input
+        formControlName="email"
+        matInput type="text"
+        autocomplete="off">
+
+        <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['required']">
+        Email required
+        </mat-error>
+
+        <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['email'] || form.get('email')?.errors?.['pattern']">
+        Please enter a valid email
+        </mat-error>
+
+        <mat-error class="mp-0" *ngIf="form.get('email')?.errors?.['maxlength']">
+            Max character length 250
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+        appearance="outline" class="w-100 mt-10">
+        <mat-label>Password</mat-label>
+        <input
+        formControlName="password"
+        matInput type="password"
+        autocomplete="off">
+
+        <mat-error class="mp-0" *ngIf="form.get('password')?.errors">
+        Please enter at least 8 characters
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+        appearance="outline" class="w-100 mt-10">
+        <mat-label>Re-password</mat-label>
+        <input
+        formControlName="re_password"
+        matInput type="password"
+        autocomplete="off">
+
+        <mat-error class="mp-0" *ngIf="form.get('re_password')?.errors">
+        Please enter at least 8 characters
+        </mat-error>
+    </mat-form-field>
+
+    <p *ngIf="errMsg" class="text-danger m-0 text-center fw-400">
+        {{errMsg}}
+    </p>
+
+    <button *ngIf="!isLoading" mat-flat-button color="accent" class="btn-gradient pull-right">
+        Send
+    </button>
+
+    <button *ngIf="isLoading" type="button" disabled mat-flat-button color="accent" class="btn-gradient disabled text-white pull-right">
+        Sending <div class="dot-loader text-white"></div>
+    </button>
+</form>

@@ -409,6 +409,10 @@ Footer [End]
   margin-top: 5px;
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -545,6 +549,10 @@ Footer [End]
 
 .fw-500 {
   font-weight: 500 !important;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
 }
 
 .cpointer {
@@ -1739,7 +1747,7 @@ Loader [End]
   right: 0px;
   bottom: 0px;
   left: 0px;
-  z-index: 100;
+  z-index: 999;
   display : flex;
   align-items : center;
 }
@@ -1802,4 +1810,50 @@ animation-timing-function: linear
 }
 /*------------
 Loader [End]
+--------------*/
+
+/*------------
+Tab [Start]
+--------------*/
+.mat-mdc-tab-link {
+  flex-grow: 0 !important;
+  font-weight: 500 !important;
+  * {
+    color: $primary-color !important;
+  }
+  .mdc-tab-indicator__content--underline {
+    border-color: $primary-color !important;
+  }
+}
+/*------------
+Tab [End]
+--------------*/
+
+
+/*------------
+Table [Start]
+--------------*/
+table {
+  .mat-column-operation {
+    padding: 15px 0px;
+    width: 200px;
+    text-align: right;
+  }
+   th {
+    color: $primary-color;
+   }
+}
+/*------------
+Table [End]
+--------------*/
+
+
+/*------------
+Users [Start]
+--------------*/
+.register-containter {
+  margin-top: 25px;
+}
+/*------------
+Users [End]
 --------------*/
