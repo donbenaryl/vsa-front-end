@@ -18,8 +18,7 @@
             </p>
             
             <div class="w-100 cpointer">
-                    <p>
-                        {{career.description}}
+                    <p [innerHtml]="commonService.nl2br(career.description)">
                     </p>
             </div>
         </div>

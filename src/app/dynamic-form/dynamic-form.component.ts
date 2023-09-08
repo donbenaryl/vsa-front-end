@@ -7,6 +7,7 @@ import { WebContentsService } from 'src/app/services/web-contents/web-contents.s
 import { IDynamicFormData, IFetchAttributes, IPageModules, IUpdateAttributes } from 'src/types/AdminPageTypes';
 import { NoopScrollStrategy } from '@angular/cdk/overlay';
 import { ActivatedRoute } from '@angular/router';
+import { CommonService } from '../services/common/common.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class DynamicFormComponent {
     private webContentsService: WebContentsService,
     private alertsService: AlertsService,
     private fb: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public commonService: CommonService
   ) {
     this.form = this.fb.group({
       dynamicData: this.fb.array([])

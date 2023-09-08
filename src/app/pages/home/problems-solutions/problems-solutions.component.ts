@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IBasicDetails } from 'src/types/AdminPageTypes';
 
@@ -37,6 +38,8 @@ export class ProblemsSolutionsComponent {
   }
 
   @Input() data: IBasicDetails[] = []
+
+  constructor (public commonService: CommonService) {}
 
   ngOnInit(): void {
     this.initData();

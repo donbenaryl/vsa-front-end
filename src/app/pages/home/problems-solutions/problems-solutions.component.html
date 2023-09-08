@@ -13,8 +13,8 @@
                 <button class="box-shadow" mat-flat-button color="accent">
                     The Problem
                 </button>
-                <p>
-                    {{problem}}
+                <p [innerHtml]="commonService.nl2br(problem)">
+                    <!-- {{problem}} -->
                     <!-- The traditional employment model faces the challenges of talent shortages in specific regions, rising operational costs, and limited flexibility. Businesses often struggle to find the right talent locally, while skilled professionals face barriers to accessing opportunities that align with their expertise. -->
                 </p>
             </div>
@@ -26,8 +26,8 @@
                     <button class="box-shadow" mat-flat-button color="accent">
                         Our Solution
                     </button>
-                    <p>
-                        {{solution}}
+                    <p [innerHtml]="commonService.nl2br(solution)">
+                        <!-- {{solution}} -->
                         <!-- The traditional employment model faces the challenges of talent shortages in specific regions, rising operational costs, and limited flexibility. Businesses often struggle to find the right talent locally, while skilled professionals face barriers to accessing opportunities that align with their expertise. -->
                     </p>
                 </div>

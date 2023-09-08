@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 import { IDynamicFormData, IHomePageData } from 'src/types/AdminPageTypes';
 
 @Component({
@@ -43,6 +44,12 @@ export class MissionVisionComponent {
       else {
         this.mvClass = 'pr-n-1200';
       }
+  }
+
+  constructor (
+    public commonService: CommonService
+  ) {
+    
   }
 
   ngOnInit(): void {

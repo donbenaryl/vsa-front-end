@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IDynamicFormData } from 'src/types/AdminPageTypes';
 import { ActivatedRoute } from '@angular/router';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-details',
@@ -20,7 +21,8 @@ export class DetailsComponent {
 
   constructor(
     private webContentsService: WebContentsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public commonService: CommonService
   ) {
     this.fetchData();
   }

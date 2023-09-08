@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, ViewChild } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IDynamicFormData } from 'src/types/AdminPageTypes';
 
@@ -26,4 +27,6 @@ export class WhyUsComponent {
         this.wuClass = 'pl-n-1200';
       }
   }
+
+  constructor (public commonService: CommonService) {}
 }

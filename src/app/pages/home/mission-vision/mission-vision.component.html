@@ -8,8 +8,8 @@
                     <img [src]="missionImg">
                 </div>
                 <h2>Mission:  </h2>
-                <p>
-                    {{mission}}
+                <p [innerHtml]="commonService.nl2br(mission)">
+                    <!-- {{mission}} -->
                     <!-- At Virtual Staff Avenue, our mission is twofold. First, we aim to provide businesses with seamless access to a diverse pool of specialized virtual staff, meticulously selected to fit each organization's unique needs. Second, we're dedicated to creating sustainable remote work opportunities that empower individuals to showcase their skills, achieve work-life balance, and contribute to global economic growth. -->
                 </p>
               </div>
@@ -22,8 +22,8 @@
                     <img [src]="visionImg">
                 </div>
                 <h2>Vision:  </h2>
-                <p>
-                    {{vision}}
+                <p [innerHtml]="commonService.nl2br(vision)">
+                    <!-- {{vision}} -->
                     <!-- Our vision is to reshape the global workforce landscape by revolutionizing the concept of remote work. We strive to empower businesses of all sizes with access to exceptional talent, irrespective of location. Through our platform, we aim to foster a borderless community of professionals and businesses working harmoniously to achieve remarkable feats. -->
                 </p>
               </div>
@@ -75,8 +75,8 @@
                             <strong>
                                 {{goal.title}}
                             </strong>
-                            <span>
-                                {{goal.description}}
+                            <span [innerHtml]="commonService.nl2br(goal.description)">
+                                <!-- {{goal.description}} -->
                             </span>
                         </li>
                     </ul>

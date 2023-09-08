@@ -15,7 +15,7 @@
                     <img src="{{row.img}}" />
                     <div>
                         <span>{{row.title}}</span>
-                        <p>{{row.description}}</p>
+                        <p [innerHtml]="commonService.nl2br(row.description)"></p>
                     </div>
                 </li>
             </ul>

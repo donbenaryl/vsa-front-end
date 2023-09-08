@@ -15,8 +15,8 @@
                         <h2>
                             {{row.title}}: 
                         </h2>
-                        <span>
-                            {{row.description}}
+                        <span [innerHtml]="commonService.nl2br(row.description)">
+                            <!-- {{row.description}} -->
                         </span>
                     </div>
                 </div>

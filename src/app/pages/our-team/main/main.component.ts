@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 import { WebContentsService } from 'src/app/services/web-contents/web-contents.service';
 import { IPageDetails } from 'src/types/AdminPageTypes';
 
@@ -14,7 +15,8 @@ export class MainComponent {
   team: IPageDetails[] = [];
 
   constructor(
-    private webContentsService: WebContentsService
+    private webContentsService: WebContentsService,
+    public commonService: CommonService
   ) {
     this.fetchData();
   }

@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 
 @Component({
   selector: 'app-banner',

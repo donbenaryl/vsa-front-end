@@ -1,4 +1,5 @@
 import { Component, HostListener, Input } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 import { IBasicDetails } from 'src/types/AdminPageTypes';
 
 @Component({
@@ -18,6 +19,12 @@ export class BannerComponent {
         this.bannerImgClass = 'pl-0';
         this.bannerTxtClass = 'pr-0';
       }
+  }
+
+  constructor (
+    public commonService: CommonService
+  ) {
+    
   }
 
   @Input() data: IBasicDetails[] = []

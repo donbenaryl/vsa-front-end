@@ -5,11 +5,11 @@
 
     <p *ngIf="data.before">
         <strong>Before: </strong>
-        <span class="preview-container" [innerHtml]="data.before"></span>
+        <span class="preview-container" [innerHtml]="commonService.nl2br(data.before)"></span>
     </p>
     <p *ngIf="data.after">
         <strong>After: </strong>
-        <span class="preview-container" [innerHtml]="data.after"></span>
+        <span class="preview-container" [innerHtml]="commonService.nl2br(data.after)"></span>
     </p>
 
     <div class="pull-right dialog-footer">

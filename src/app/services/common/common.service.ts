@@ -41,4 +41,10 @@ export class CommonService {
   });
 
   delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
+  nl2br (str: string, is_xhtml: any = undefined) {
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br ' + '/>' : '<br>'; // Adjust comment to avoid issue on phpjs.org display
+  
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+  }
 }

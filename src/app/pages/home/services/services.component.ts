@@ -1,4 +1,5 @@
 import { Component, HostListener, ViewChild, ElementRef, Input } from '@angular/core';
+import { CommonService } from 'src/app/services/common/common.service';
 
 import { IDynamicFormData } from 'src/types/AdminPageTypes';
 
@@ -48,6 +49,8 @@ export class ServicesComponent {
   @Input() whyOurServices: IDynamicFormData[] = [];
 
   @Input() services: IDynamicFormData[] = [];
+
+  constructor (public commonService: CommonService) {}
 
   ngOnInit(): void {
   }
